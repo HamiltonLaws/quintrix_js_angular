@@ -1,0 +1,9 @@
+<h1>{{title | uppercase}}</h1>
+<h2>{{newDate|date:'medium'}}</h2>
+<input placeholder="user" [(ngModel)]="userObject.name">
+<input placeholder="user" [(ngModel)]="userObject.age">
+<input placeholder="user" [(ngModel)]="userObject.id">
+
+<button (click)="handleEventHttp()">Make Http call</button>
+<app-user [user]="userObject" (userEvent)="handleEvent($event)"></app-user>
+

@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./agent.component.css']
 })
 export class AgentComponent implements OnInit {
+  errormessage:any;
 
   data: Agent[]=[];
   columnsToDisplay = ['id','name','email','gender','status']
@@ -22,6 +23,9 @@ export class AgentComponent implements OnInit {
     this.AgentService.getAgents().subscribe(x =>{
       this.data = x;
       console.log(this.data);
+    },(error)=>{
+      this.errormessage = error;
+      //console.log(error);
     })
    }
 

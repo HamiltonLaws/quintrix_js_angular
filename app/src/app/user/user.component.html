@@ -1,4 +1,41 @@
-<p>user works!</p>
-<h2>{{user.name}}</h2>
-<h2>{{user.age}}</h2>
-<h2>{{user.id}}</h2>
+
+<form [formGroup]="userForm">
+<input type ="number" placeholder="id" formControlName = "id">
+<input type="text" placeholder="name" formControlName="name">
+<input type="text" placeholder="phone" formControlName="phone">
+<input type="text" placeholder="email" formControlName="email">
+<input type="boolean" placeholder="active" formControlName="active">
+<input (click)="onPost()" type = "submit" value = "submit">
+</form>
+
+<ng-container *ngIf="errormessage">
+  <h5>{{errormessage}}</h5>
+</ng-container>
+<h3 *ngIf="!errormessage">User Table</h3>
+<table mat-table [dataSource]="data" *ngIf="!errormessage">
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> Id </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+  <ng-container matColumnDef="phone">
+    <th mat-header-cell *matHeaderCellDef> Phone </th>
+    <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+  </ng-container>
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef> Email </th>
+    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+  </ng-container>
+  <ng-container matColumnDef="active">
+    <th mat-header-cell *matHeaderCellDef> Active </th>
+    <td mat-cell *matCellDef="let element"> {{element.active}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+
+</table>

@@ -1,10 +1,31 @@
-<h1>{{title | uppercase}}</h1>
 <h2>{{newDate|date:'medium'}}</h2>
-<input placeholder="user" [(ngModel)]="userObject.name">
-<input placeholder="user" [(ngModel)]="userObject.age">
-<input placeholder="user" [(ngModel)]="userObject.id">
 
-<button (click)="handleEventHttp()">Make Http call</button>
-<app-user [user]="userObject" (userEvent)="handleEvent($event)"></app-user>
-<app-agent></app-agent>
+<nav class="navbar">
+  <div class="logo">{{title | uppercase}}</div>
+  <ul class="nav-links">
+    <!-- NAVIGATION MENUS -->
+    <div class="menu">
+      <li><a routerLink="/">Home</a></li>
+      <li><a routerLink="/agent">Agent</a></li>
+      <li><a routerLink="/user">User</a></li>
+      <!-- Nothing yet -->
+      <li class="services">
+        <a href="/">Services</a>
+        <!-- DROPDOWN MENU -->
+        <ul class="dropdown">
+          <li><a href="/">Dropdown 1 </a></li>
+          <li><a href="/">Dropdown 2</a></li>
+          <li><a href="/">Dropdown 2</a></li>
+          <li><a href="/">Dropdown 3</a></li>
+          <li><a href="/">Dropdown 4</a></li>
+        </ul>
+      </li>
+      <li><a href="/">Pricing</a></li>
+      <li><a href="/">Contact</a></li>
+    </div>
+  </ul>
+</nav>
 
+<!-- <app-user></app-user>
+<app-agent></app-agent> -->
+<router-outlet></router-outlet>

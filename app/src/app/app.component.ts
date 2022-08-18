@@ -9,11 +9,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'My App';
 
-  userObject ={
-    name:'Jhon',
-    age:'32',
-    id:0
-  }
 
   newDate = new Date();
 

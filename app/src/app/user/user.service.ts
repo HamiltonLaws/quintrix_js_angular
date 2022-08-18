@@ -1,31 +1,36 @@
-
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable,throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { catchError, Observable, throwError } from 'rxjs';
 
-export interface Agent{
-  id :number;
-  name : string;
-  email : string;
-  gender : string;
-  status : string;
+export interface User{
+  id:number;
+  name:string;
+  phone:string;
+  email:string;
+  active:boolean;
 }
 
 @Injectable({
   providedIn: 'root'
 })
-export class AgentService {
+export class UserService {
 
   constructor(private http: HttpClient) { }
 
   rootURL = 'http://localhost:8080';
 
-  getAgents():Observable<Agent[]> {
+  getUsers():Observable<User[]> {
     //console.log(this.rootURL);
-    return this.http.get<Agent[]>(this.rootURL+'/agents').pipe(
+    return this.http.get<User[]>(this.rootURL+'/users').pipe(
       catchError(this.handleError)
     );
+  }
+
+  postUsers(user:User):Observable<User>{
+    return this.http.post<User>(this.rootURL+'/users',user).pipe(
+      catchError(this.handleError)
+      );
+
   }
 
   private handleError(error: HttpErrorResponse) {
@@ -44,5 +49,4 @@ export class AgentService {
     errormessage+= 'Something bad happened; please try again later.';
     return throwError(() => new Error('Something bad happened; please try again later.'));
   }
-
 }

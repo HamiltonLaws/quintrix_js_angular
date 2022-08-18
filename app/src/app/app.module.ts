@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import { UserComponent } from './user/user.component'
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgentComponent } from './agent/agent.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {  MatTableModule } from "@angular/material/table";
@@ -22,7 +22,8 @@ import {  MatTableModule } from "@angular/material/table";
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatTableModule
+    MatTableModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

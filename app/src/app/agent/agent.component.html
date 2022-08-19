@@ -1,5 +1,9 @@
-<h2>Agents Table</h2>
-<table mat-table [dataSource]="data">
+<h2 *ngIf="!errormessage">Agents Table</h2>
+<ng-container *ngIf="errormessage">
+  <h5>{{errormessage}}</h5>
+</ng-container>
+
+<table mat-table [dataSource]="data" *ngIf="!errormessage">
 
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> Id </th>

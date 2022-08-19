@@ -1,3 +1,4 @@
+import { UserService } from './user/user.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -9,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgentComponent } from './agent/agent.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {  MatTableModule } from "@angular/material/table";
+import { AgentService } from './agent/agent.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,7 @@ import {  MatTableModule } from "@angular/material/table";
     MatTableModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AgentService,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

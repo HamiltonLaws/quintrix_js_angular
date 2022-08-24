@@ -1,3 +1,4 @@
+import { OrdersService } from './../orders/orders.service';
 import { Injectable } from '@angular/core';
 
 export interface Customer{
@@ -13,6 +14,28 @@ export interface Customer{
   providedIn: 'root'
 })
 export class CustomerService {
+  num=0;
 
-  constructor() { }
+  customerList: Customer[] = [
+    {id:1,firstName:"Hamilton",lastName:"Laws",address:"12134 Home Dr",city:"Cleveland",orderTotal:this.OrdersService.getTotal(1)},
+    {id:2,firstName:"Billy",lastName:"Jones",address:"12134 David Rd",city:"Chicago",orderTotal:this.OrdersService.getTotal(2)},
+    {id:3,firstName:"Jonny",lastName:"Killian",address:"1254 Killingway Dr",city:"Las Vagas",orderTotal:this.OrdersService.getTotal(2)},
+  ];
+
+  getCustomer(){
+    //this.num=this.OrdersService.getTotal(1);
+    //this.customerList[0].orderTotal = this.num;
+    this.customerList[0].orderTotal = this.OrdersService.getTotal(1);
+    return this.customerList;
+  }
+
+  postCustomer(c: Customer){
+    this.customerList.push(c);
+  }
+
+  constructor(private OrdersService:OrdersService) {
+    //this.OrdersService.getTotal(1);
+    //this.OrdersService.getTotal(2);
+    //this.OrdersService.getTotal(3);
+  }
 }

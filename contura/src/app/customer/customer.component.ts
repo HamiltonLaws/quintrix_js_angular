@@ -1,3 +1,4 @@
+import { Customer, CustomerService } from './customer.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerComponent implements OnInit {
 
-  constructor() { }
+  columnsToDisplay = ['id','firstName','lastName','address','city','orderTotal'];
+
+  data: Customer[] = [];
+
+  constructor(private CustomerService:CustomerService) { }
 
   ngOnInit(): void {
+    this.data = this.CustomerService.getCustomer();
+    console.log(this.data)
   }
 
 }

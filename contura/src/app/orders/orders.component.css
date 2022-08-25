@@ -1,0 +1,18 @@
+table, td, th {
+  text-align: left;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td{
+  width: 100px;
+}
+.orderTotal{
+  font-style:italic;
+}
+div{
+  padding: 10px;
+}

@@ -22,7 +22,7 @@
 </form>
 <mat-divider></mat-divider>
 
-<table mat-table [dataSource]="data">
+<table mat-table [dataSource]="customers">
 
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> Id </th>
@@ -53,3 +53,9 @@
   <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
 
 </table>
+
+<mat-paginator [length]="100"
+              [pageSize]="5"
+              [pageSizeOptions]="[5, 10, 25, 100]"
+              aria-label="Select page">
+</mat-paginator>

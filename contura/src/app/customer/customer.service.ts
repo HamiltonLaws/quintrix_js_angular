@@ -23,9 +23,6 @@ export class CustomerService {
   ];
 
   getCustomer(){
-    //this.num=this.OrdersService.getTotal(1);
-    //this.customerList[0].orderTotal = this.num;
-    this.customerList[0].orderTotal = this.OrdersService.getTotal(1);
     return this.customerList;
   }
 
@@ -34,8 +31,6 @@ export class CustomerService {
   }
 
   constructor(private OrdersService:OrdersService) {
-    //this.OrdersService.getTotal(1);
-    //this.OrdersService.getTotal(2);
-    //this.OrdersService.getTotal(3);
+
   }
 }

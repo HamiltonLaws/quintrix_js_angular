@@ -15,6 +15,9 @@ import { OrdersService } from './orders/orders.service';
 import {  MatTableModule } from "@angular/material/table";
 import {MatDividerModule} from '@angular/material/divider';
 import { MatInputModule } from '@angular/material/input';
+import { JwPaginationModule } from 'jw-angular-pagination';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +35,9 @@ import { MatInputModule } from '@angular/material/input';
     MatFormFieldModule,
     MatTableModule,
     MatDividerModule,
-    MatInputModule
+    MatInputModule,
+    JwPaginationModule,
+    MatPaginatorModule
   ],
   providers: [CustomerService,OrdersService],
   bootstrap: [AppComponent]

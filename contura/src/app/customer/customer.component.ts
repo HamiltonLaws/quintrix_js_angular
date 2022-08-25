@@ -1,22 +1,45 @@
 import { Customer, CustomerService } from './customer.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-customer',
   templateUrl: './customer.component.html',
-  styleUrls: ['./customer.component.css']
+  styleUrls: ['./customer.component.css'],
 })
+
 export class CustomerComponent implements OnInit {
 
+  @ViewChild(MatPaginator, {static: false})
+  set paginator(value: MatPaginator) {
+    if (this.customers){
+      this.customers.paginator = value;
+    }
+  }
   columnsToDisplay = ['id','firstName','lastName','address','city','orderTotal'];
 
-  data: Customer[] = [];
+  customers = new MatTableDataSource<Customer>(this.CustomerService.getCustomer());
 
-  constructor(private CustomerService:CustomerService) { }
+  //data = [];
+
+  pageOfItems: Array<any> = [];
+  //paginator: MatPaginator | null = new MatPaginator;
+
+  constructor(private CustomerService:CustomerService) {}
+
+
+
 
   ngOnInit(): void {
-    this.data = this.CustomerService.getCustomer();
-    console.log(this.data)
+    this.customers.paginator = this.paginator
+    //this.data = Array(this.customers.length).fill(0).map((x,i)=>({}))
+    //this.customers = this.CustomerService.getCustomer();
+    //this.customers.paginator=this.paginator;
   }
+
+  //onChangePage(pageOfItems:Array<any>){
+   // this.pageOfItems = pageOfItems;
+  //}
 
 }

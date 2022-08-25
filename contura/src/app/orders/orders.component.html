@@ -1,1 +1,19 @@
 
+<div *ngFor="let customer of customers">
+  <h3 class="name">{{customer.firstName}}  {{customer.lastName}}</h3>
+  <div *ngFor="let order of orders">
+    <table *ngIf="customer.id == order.customerId">
+      <tr class="items" *ngFor="let item of order.listItems">
+          <td>{{item.name}}</td>
+          <td>${{item.price}}</td>
+      </tr>
+      <mat-divider></mat-divider>
+      <tr class="orderTotal">Total
+
+        <td>${{customer.orderTotal}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+

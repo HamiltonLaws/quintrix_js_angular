@@ -58,12 +58,9 @@ export class OrdersService {
       this.total=0;
       this.orderList.filter(x=>x.customerId == num).forEach(obj=>{
       obj.listItems.forEach(obj2=>{
-        //console.log(this.total);
         this.total+=obj2.price
         })
       });
-      console.log(this.orderList)
-      console.log(this.total);
       return this.total
     }
 

@@ -1,1 +1,22 @@
-<p>login works!</p>
+<div class = "login">
+  <form [formGroup]="userForm" (ngSubmit)="loginUser()">
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Username" formControlName="username" [ngClass]="{ 'is-invalid': loginUser && userForm.controls['username'].errors }">
+      <div *ngIf="loginUser && userForm.controls['username'].errors" class="text-danger">
+      <div *ngIf="userForm.controls['username'].errors['required']">Username is required</div></div>
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Password" formControlName="password"  [ngClass]="{ 'is-invalid': loginUser && userForm.controls['password'].errors }">
+      <div *ngIf="loginUser && userForm.controls['password'].errors" class="text-danger">
+        <div *ngIf="userForm.controls['password'].errors['required']">Password is required</div>
+        <div *ngIf="userForm.controls['password'].errors['minlength']">Password must be at least 10 characters</div>
+        <div *ngIf="userForm.controls['password'].errors['hasNumber']">Passwrod must have 1 number</div>
+        <div *ngIf="userForm.controls['password'].errors['hasSpecialCharacters']">Password must have 1 special characer</div>
+        </div>
+    </div>
+    <div class="form-group">
+      <button type="submit" [disabled]="userForm.invalid" class="btn btn-primary">Login</button>
+    </div>
+  </form>
+</div>
+

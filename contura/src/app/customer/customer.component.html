@@ -16,7 +16,7 @@
 
     <td><mat-form-field >
       <mat-label>Filter:</mat-label>
-      <input matInput>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Search Columns" #input>
     </mat-form-field></td>
   </tr></table>
 </form>

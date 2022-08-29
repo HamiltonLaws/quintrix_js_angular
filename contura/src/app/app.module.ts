@@ -17,6 +17,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import { MatInputModule } from '@angular/material/input';
 import { JwPaginationModule } from 'jw-angular-pagination';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -37,7 +38,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatDividerModule,
     MatInputModule,
     JwPaginationModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [CustomerService,OrdersService],
   bootstrap: [AppComponent]

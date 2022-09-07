@@ -10,13 +10,13 @@
       <td><button mat-icon-button>
         <mat-icon>room</mat-icon>Map View
       </button></td>
-      <td><button mat-icon-button>
+      <td><a mat-icon-button routerLink="/addCustomer">
         <mat-icon>add</mat-icon>New Customer
-      </button></td>
+      </a></td>
 
     <td><mat-form-field >
       <mat-label>Filter:</mat-label>
-      <input matInput>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Search Columns" #input>
     </mat-form-field></td>
   </tr></table>
 </form>

@@ -21,10 +21,10 @@ export class CustomerComponent implements OnInit {
 
   customers = new MatTableDataSource<Customer>(this.CustomerService.getCustomer());
 
-  //data = [];
-
-  pageOfItems: Array<any> = [];
-  //paginator: MatPaginator | null = new MatPaginator;
+  applyFilter(event :Event){
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.customers.filter = filterValue.trim().toLowerCase();
+  }
 
   constructor(private CustomerService:CustomerService) {}
 
@@ -33,13 +33,9 @@ export class CustomerComponent implements OnInit {
 
   ngOnInit(): void {
     this.customers.paginator = this.paginator
-    //this.data = Array(this.customers.length).fill(0).map((x,i)=>({}))
-    //this.customers = this.CustomerService.getCustomer();
-    //this.customers.paginator=this.paginator;
+
   }
 
-  //onChangePage(pageOfItems:Array<any>){
-   // this.pageOfItems = pageOfItems;
-  //}
+
 
 }

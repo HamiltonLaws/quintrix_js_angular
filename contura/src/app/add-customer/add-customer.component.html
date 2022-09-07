@@ -1,0 +1,30 @@
+<div *ngIf="!loggedIn"><p>You are not logged in Please do so</p></div>
+<div *ngIf="loggedIn">
+  <form [formGroup]="newCustomerForm" (ngSubmit)="addCustomer()">
+    <div class="formGroup">
+      <input type="text" class="form-control" placeholder="First Name" formControlName="firstName">
+      <div *ngIf="addCustomer && newCustomerForm.controls['firstName'].errors" class="text-danger">
+        <div *ngIf="newCustomerForm.controls['firstName'].errors['required']">First Name is required</div></div>
+    </div>
+    <div class="formGroup">
+      <input type="text" class="form-control" placeholder="Last Name" formControlName="lastName">
+      <div *ngIf="addCustomer && newCustomerForm.controls['lastName'].errors" class="text-danger">
+        <div *ngIf="newCustomerForm.controls['lastName'].errors['required']">Last Name is required</div></div>
+    </div>
+    <div class="formGroup">
+      <input type="text" class="form-control" placeholder="Address" formControlName="address" >
+      <div *ngIf="addCustomer && newCustomerForm.controls['address'].errors" class="text-danger">
+        <div *ngIf="newCustomerForm.controls['address'].errors['required']">Address is required</div></div>
+    </div>
+    <div class="formGroup">
+      <input type="text" class="form-control" placeholder="City" formControlName="city">
+      <div *ngIf="addCustomer && newCustomerForm.controls['city'].errors" class="text-danger">
+        <div *ngIf="newCustomerForm.controls['city'].errors['required']">City is required</div></div>
+    </div>
+    <div class="form-group">
+      <button type="submit" [disabled]="newCustomerForm.invalid" class="btn btn-primary">Add</button>
+    </div>
+
+  </form>
+</div>
+

@@ -1,6 +1,7 @@
 import { PasswordValidators } from './password-validators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from './login.service';
 
 @Component({
   selector: 'app-login',
@@ -11,11 +12,13 @@ export class LoginComponent implements OnInit {
   userForm!: FormGroup;
 
   //username ='';
-  //password = '';
+  loggedIn = this.LoginService.getLogin();
 
   loginUser(){
-    if(this.userForm.controls['username'].value == "hammy233" && this.userForm.controls['password'].value == "pass"){
+    if(this.userForm.controls['username'].value == "admin" && this.userForm.controls['password'].value == "P@ssw0rd123"){
       alert("Welcome");
+      this.LoginService.logIn();
+      this.loggedIn = this.LoginService.getLogin();
     }
     else{
       alert("Check your creidentials")
@@ -42,7 +45,7 @@ export class LoginComponent implements OnInit {
   }
 
 
-  constructor(private fb :FormBuilder) { }
+  constructor(private fb :FormBuilder, private LoginService:LoginService ) { }
 
   ngOnInit(): void {
     this.userForm = this.fb.group({

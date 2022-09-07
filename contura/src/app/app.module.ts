@@ -18,6 +18,8 @@ import { MatInputModule } from '@angular/material/input';
 import { JwPaginationModule } from 'jw-angular-pagination';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddCustomerComponent } from './add-customer/add-customer.component';
+import { LoginService } from './login/login.service';
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CustomerComponent,
     OrdersComponent,
     AboutComponent,
-    LoginComponent
+    LoginComponent,
+    AddCustomerComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [CustomerService,OrdersService],
+  providers: [CustomerService,OrdersService,LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
